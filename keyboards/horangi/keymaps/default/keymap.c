@@ -214,7 +214,7 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 
 report_mouse_t pointing_device_task_user(report_mouse_t mouse_report) {
     float magnitude = sqrtf(mouse_report.x * mouse_report.x + mouse_report.y * mouse_report.y);
-    float adjusted_magnitude = powf(magnitude, 1.9f);
+    float adjusted_magnitude = powf(magnitude, 1.6f);
 
     mouse_report.x = (float)(mouse_report.x * adjusted_magnitude);
 
