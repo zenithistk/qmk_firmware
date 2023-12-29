@@ -5,16 +5,12 @@
 #define _LOWER 1
 #define _RAISE 2
 #define _ADJUST 3
-#define _NAV 4
-#define _FROW 5
 
 enum custom_keycodes {
   QWERTY = SAFE_RANGE,
   LOWER,
   RAISE,
   ADJUST,
-  NAV,
-  FROW,
 };
 
 const uint16_t PROGMEM cb_btn2[] = {KC_BTN1, LT(1,KC_HOME), COMBO_END};
@@ -57,7 +53,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______,    _______,    _______,    _______,    _______,    _______,    _______,        _______,    _______,    _______,    _______,    _______,    _______,    _______,
         _______,    _______,    _______,    _______,    _______,    _______,    _______,        _______,    _______,    _______,    _______,    _______,    _______,    _______,
         _______,    _______,    _______,    _______,    _______,    _______,    _______,        _______,    _______,    _______,    _______,    _______,    _______,    _______,
-                                                        _______,    _______,    _______,        KC_VOLU,    KC_NUM ,    _______ ,
+                                                        _______,    _______,    _______,        KC_VOLU,    KC_NUM ,    _______,
                                                         _______,    _______,    _______,        _______,    KC_VOLD,    _______
     ),
     [_ADJUST] = LAYOUT(
@@ -65,7 +61,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______,    _______,    _______,    _______,    _______,    _______,    _______,        _______,    _______,    _______,    _______,    _______,    _______,    _______,
         _______,    _______,    _______,    _______,    _______,    _______,    _______,        _______,    _______,    _______,    _______,    _______,    _______,    _______,
         _______,    _______,    _______,    _______,    _______,    _______,    _______,        _______,    _______,    _______,    _______,    _______,    _______,    _______,
-                                                        _______,    _______,    _______,        _______,    _______,    _______ ,
+                                                        _______,    _______,    _______,        _______,    _______,    _______,
                                                         _______,    _______,    _______,        _______,    _______,    _______
     ),
 };
@@ -126,7 +122,6 @@ bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
         case LSFT_T(KC_MINS):
             return true;
         default:
-            // Do not select the hold action when another key is pressed.
             return false;
     }
 }
@@ -142,7 +137,6 @@ bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
         case LSFT_T(KC_MINS):
             return true;
         default:
-            // Do not select the hold action when another key is tapped.
             return false;
     }
 }
